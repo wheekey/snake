@@ -16,6 +16,13 @@ import java.util.concurrent.TimeUnit;
 public class FieldView extends View {
 
     Paint paint = new Paint();
+    public static Canvas mCanvas;
+
+
+    private int left = 0;
+    private int top = 0;
+    private int right = 40;
+    private int bottom = 40;
 
     private static final String DEBUG_TAG = "FieldView";
 
@@ -31,20 +38,31 @@ public class FieldView extends View {
     public FieldView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
 
+
     }
 
+    public void drawCircle() {
+        this.right = 80;
+        this.bottom = 80;
+
+
+        //important. Refreshes the view by calling onDraw function
+        invalidate();
+
+    }
+
+
+
     protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
+        mCanvas = canvas;
+        super.onDraw(mCanvas);
 
 
         paint.setStyle(Paint.Style.FILL);
         paint.setColor(Color.YELLOW);
 
-        canvas.drawRect(0, 0, 400, 80, paint);
+        mCanvas.drawRect(this.left, this.top, this.right, this.bottom, paint);
 
-        paint.setColor(Color.GREEN);
-
-        canvas.drawRect(0, 300, 400, 80, paint);
 
     }
 
