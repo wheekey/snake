@@ -4,18 +4,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.wheekey.snake.ui.views.CanvasDrawableView;
+import com.wheekey.snake.listeners.SwipeController;
 
 public class MainActivity extends AppCompatActivity {
 
-    CanvasDrawableView canvasDrawableView;
+    SwipeController swipeController;
+    OnSwipeTouchListener onSwipeTouchListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-        canvasDrawableView = new CanvasDrawableView(this);
+        swipeController = new SwipeController(this);
+        onSwipeTouchListener = new OnSwipeTouchListener(this, findViewById(R.id.fieldView), swipeController);
 
-        setContentView(canvasDrawableView);
+
+
     }
 }
