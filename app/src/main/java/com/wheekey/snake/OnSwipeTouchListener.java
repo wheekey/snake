@@ -67,19 +67,19 @@ public class OnSwipeTouchListener implements View.OnTouchListener {
     }
 
     void onSwipeRight() {
-        this.swipeController.swipeRight();
+        this.swipeController.changeDirection(DirectionEnum.RIGHT);
     }
 
     void onSwipeLeft() {
-        this.swipeController.swipeLeft();
+        this.swipeController.changeDirection(DirectionEnum.LEFT);
     }
 
     void onSwipeTop() {
-        this.swipeController.swipeTop();
+        this.swipeController.changeDirection(DirectionEnum.TOP);
     }
 
     void onSwipeBottom() {
-        this.swipeController.swipeBottom();
+        this.swipeController.changeDirection(DirectionEnum.BOTTOM);
     }
 
 

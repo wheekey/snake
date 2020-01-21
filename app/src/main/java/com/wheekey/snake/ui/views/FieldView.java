@@ -11,6 +11,10 @@ import android.view.View;
 
 import androidx.core.view.MotionEventCompat;
 
+import com.wheekey.snake.entities.Point;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class FieldView extends View {
@@ -19,10 +23,7 @@ public class FieldView extends View {
     public static Canvas mCanvas;
 
 
-    private int left = 0;
-    private int top = 0;
-    private int right = 40;
-    private int bottom = 40;
+    private List<Point> points = new ArrayList<>();
 
     private static final String DEBUG_TAG = "FieldView";
 
@@ -41,12 +42,9 @@ public class FieldView extends View {
 
     }
 
-    public void drawCircle() {
-        this.right = 80;
-        this.bottom = 80;
-
-
+    public void redraw(List<Point> points, Point feedPoint) {
         //important. Refreshes the view by calling onDraw function
+        this.points = points;
         invalidate();
 
     }
@@ -61,7 +59,11 @@ public class FieldView extends View {
         paint.setStyle(Paint.Style.FILL);
         paint.setColor(Color.YELLOW);
 
-        mCanvas.drawRect(this.left, this.top, this.right, this.bottom, paint);
+        for(Point point:points){
+            mCanvas.drawRect(point.getLeft(), point.getTop(), point.getRight(), point.getBottom(), paint);
+        }
+
+
 
 
     }

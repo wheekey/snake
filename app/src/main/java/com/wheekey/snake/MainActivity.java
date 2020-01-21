@@ -4,14 +4,21 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.wheekey.snake.listeners.SwipeController;
+import com.wheekey.snake.controllers.FieldController;
+import com.wheekey.snake.controllers.GameController;
+import com.wheekey.snake.services.FieldService;
 import com.wheekey.snake.ui.views.FieldView;
 
 public class MainActivity extends AppCompatActivity {
 
-    SwipeController swipeController;
+    GameController gameController ;
+    FieldController fieldController;
     OnSwipeTouchListener onSwipeTouchListener;
     FieldView fieldView;
+
+
+    int fieldSizePx = 400;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,11 +26,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         fieldView = findViewById(R.id.fieldView);
-        swipeController = new SwipeController(this, fieldView);
+
+        fieldController = new FieldController(new FieldService());
+        gameController = new GameController(this, fieldView, fieldController);
 
 
-        onSwipeTouchListener = new OnSwipeTouchListener(this, fieldView, swipeController);
-
+        onSwipeTouchListener = new OnSwipeTouchListener(this, fieldView, gameController);
+        gameController.start();
 
 
     }
