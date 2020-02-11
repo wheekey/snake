@@ -7,13 +7,6 @@ import java.util.ArrayList;
 
 public class SnakeService {
 
-    public void addBodyPart(Snake snake, SnakeBodyPartCoordinates newSnakeBodyPartCoordinates) {
-        ArrayList<SnakeBodyPartCoordinates> snakeBodyPartCoordinatesList = snake.getSnakeBodyPartCoordinatesList();
 
-        for (SnakeBodyPartCoordinates snakeBodyPartCoordinates : snakeBodyPartCoordinatesList) {
-            snakeBodyPartCoordinates.incrementBodyPartCoordinates();
-        }
-        snakeBodyPartCoordinatesList.add(newSnakeBodyPartCoordinates);
-    }
 
 }

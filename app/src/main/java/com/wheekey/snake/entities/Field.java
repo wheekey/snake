@@ -2,19 +2,9 @@ package com.wheekey.snake.entities;
 
 public class Field {
 
-    private int[][] coordinates;
+    private final int fieldSize;
 
     public Field(int fieldSize) {
-        this.coordinates = new int[fieldSize][fieldSize];
+        this.fieldSize = fieldSize;
     }
-
-    public int[][] getCoordinates() {
-        return coordinates;
-    }
-
-    public int getFieldSize()
-    {
-        return coordinates.length * 2;
-    }
-
 }

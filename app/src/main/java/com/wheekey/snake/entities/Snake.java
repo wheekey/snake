@@ -1,22 +1,24 @@
 package com.wheekey.snake.entities;
 
+import com.wheekey.snake.DirectionEnum;
 import com.wheekey.snake.valueobjects.SnakeBodyPartCoordinates;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Snake {
 
-    private ArrayList<SnakeBodyPartCoordinates> snakeBodyPartCoordinatesList;
+    private List<Point> points;
+    private DirectionEnum directionEnum;
 
-    public ArrayList<SnakeBodyPartCoordinates> getSnakeBodyPartCoordinatesList() {
-        return snakeBodyPartCoordinatesList;
+    public Snake(List<Point> points, DirectionEnum directionEnum) {
+        this.points = points;
+        this.directionEnum = directionEnum;
     }
 
-    public void setSnakeBodyPartCoordinatesList(ArrayList<SnakeBodyPartCoordinates> snakeBodyPartCoordinatesList) {
-        this.snakeBodyPartCoordinatesList = snakeBodyPartCoordinatesList;
+    public List<Point> getPoints() {
+        return points;
     }
 
-    public int getSnakeSize() {
-        return snakeBodyPartCoordinatesList.size();
-    }
+
 }

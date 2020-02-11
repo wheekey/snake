@@ -15,14 +15,8 @@ public class FieldController {
         this.fieldService = fieldService;
     }
 
-    public void redrawPoints(List<Point> pointList, FieldView fieldView)
+    public void moveSnake(List<Point> pointList, DirectionEnum directionEnum)
     {
-        fieldView.redraw(pointList, new Point(80,0,120, 40));
-    }
-
-    public void movePoints(List<Point> pointList, DirectionEnum directionEnum)
-    {
-
         fieldService.recalculatePoints(pointList, directionEnum);
     }
 }
