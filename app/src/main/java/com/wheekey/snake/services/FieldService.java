@@ -86,7 +86,7 @@ public class FieldService {
     }
 
 
-    public void generateNewFeedPoint(List<Point> pointList, DirectionEnum directionEnum) {
+    public Point generateNewFeedPoint(List<Point> pointList, DirectionEnum directionEnum) {
 
     }
 
